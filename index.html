@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator By-Ayush Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #0a0a0a, #3a4452);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: no-repeat;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            background-image: url(https://img.freepik.com/free-photo/pink-sky-background-with-crescent-moon_53876-129048.jpg?w=360);
+        }
+
+        .calculator {
+            border: 1px solid #3a4452;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.607);
+            box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+
+        }
+
+        input {
+            width: 250px;
+            padding: 24px;
+            margin: 10px;
+            background: transparent;
+            border: none;
+            box-shadow: 0px 3px 15px rgba(107, 107, 107, 0.1);
+            text-align: right;
+            font-size: 30px;
+            color: #ffffff;
+
+        }
+
+        button {
+
+            width: 60px;
+            height: 60px;
+            margin: 3px;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: -8px -8px 8px rgba(196, 191, 191, 0.1);
+            border: none;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            font-size: 21px;
+
+
+        }
+        button:hover{
+            background-color: #0a0a0a9d;
+        }
+
+        input::placeholder {
+            color: #ffffff;
+        }
+
+        .eq {
+            background: orange;
+            color: #0a0a0a;
+        }
+        .eq:hover{
+            background-color: rgba(228, 169, 58, 0.676);
+        }
+
+        .at {
+            background: rgba(172, 255, 47, 0.271);
+            color: #0a0a0a;
+        }
+        .at:hover{
+            background-color: rgba(30, 213, 85, 0.558);
+        }
+        span{
+            position: absolute;
+            top: 240px;
+           
+            margin-top: 450px;
+            color: #ffffff;
+            font-size: 12px;
+            text-decoration: none;
+ 
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+        span:hover{
+     color: rgb(225, 0, 255);
+        }
+        h1{
+            margin-left: 50px;
+            color: rgb(239, 134, 6);
+        }
+    </style>
+
+</head>
+
+<body>
+   
+    <div class="calculator">
+        <div><h1>
+            Calculator
+        </h1></div>
+        <input type="text" placeholder="0" id="ib">
+        <div>
+            <button class="at">AC</button>
+            <button class="at">C</button>
+            <button class="at">%</button>
+            <button class="at">/</button>
+        </div>
+
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="at">+</button>
+        </div>
+
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="at">-</button>
+        </div>
+
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="at">*</button>
+        </div>
+
+        <div>
+            <button>0</button>
+            <button>00</button>
+            <button>.</button>
+            <button class="eq">=</button>
+        </div>
+    </div>
+    <script>
+        let input = document.getElementById('ib');
+        let buttons = document.querySelectorAll('button');
+        let string = "";
+        let arr = Array.from(buttons);
+        arr.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.innerHTML == '=') {
+                    string = eval(string);
+                    input.value = string;
+                }
+
+                else if (e.target.innerHTML == 'AC') {
+                    string = "";
+                    input.value = string;
+                }
+                else if (e.target.innerHTML == 'C') {
+                    string = string.substring(0, string.length - 1);
+                    input.value = string;
+                }
+                else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+
+            })
+        })
+    </script>
+    <span>
+        <a href="https://instagram.com/withayusxh">@ayusxhh21</a>
+    </span>
+</body>
+
+</html>
